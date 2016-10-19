@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion project.properties.projectTargetSdkVerion
+    buildToolsVersion project.properties.projectBuildToolsVersion
+    defaultConfig {
+        applicationId "com.personify"
+        minSdkVersion project.properties.projectMinSdkVersion
+        targetSdkVersion project.properties.projectTargetSdkVerion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    packagingOptions {
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    // Android libraries
+    compile "com.android.support:appcompat-v7:$projectSupportVersion"
+    compile "com.android.support:design:$projectSupportVersion"
+    compile "com.android.support:recyclerview-v7:$projectSupportVersion"
+    compile "com.android.support.constraint:constraint-layout:$projectConstraintLayoutVersion"
+
+    // Third party libraries
+    compile "com.jakewharton:butterknife:$butterKnifeVersion"
+    apt "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+    compile "org.apache.commons:commons-lang3:$apacheCommonLangsVersion"
+    compile "xyz.danoz:recyclerviewfastscroller:$fastScrollerVersion"
+
+    // Dagger dependencies
+    apt "com.google.dagger:dagger-compiler:$daggerVersion"
+    compile "com.google.dagger:dagger:$daggerVersion"
+
+    //RxJava dependencies
+    compile "io.reactivex:rxjava:$rxJavaVersion"
+    compile "io.reactivex:rxandroid:$rxAndroidVersion"
+
+    // Dependency for fetching alphabet based on locale
+    compile "com.ibm.icu:icu4j:51.1"
+
+    testCompile 'junit:junit:4.12'
+}
