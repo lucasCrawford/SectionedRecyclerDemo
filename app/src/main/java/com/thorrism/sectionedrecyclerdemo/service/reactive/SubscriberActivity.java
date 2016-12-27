@@ -1,8 +1,6 @@
-package com.thorrism.sectionedrecyclerdemo.view.activity;
+package com.thorrism.sectionedrecyclerdemo.service.reactive;
 
 import android.support.v7.app.AppCompatActivity;
-
-import com.thorrism.sectionedrecyclerdemo.service.reactive.SubscriberComponent;
 
 import rx.subscriptions.CompositeSubscription;
 

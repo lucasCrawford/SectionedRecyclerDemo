@@ -1,8 +1,11 @@
 package com.thorrism.sectionedrecyclerdemo.common;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 
 /**
@@ -22,6 +25,18 @@ public class PermissionUtils {
     public static boolean checkPermission(Activity activity, String permission) {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
                 ContextCompat.checkSelfPermission(activity, permission) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    public static void updateAskedPermission(Context context, String permission, boolean status) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        sharedPreferences.edit()
+                .putBoolean(permission, status)
+                .apply();
+    }
+
+    public static boolean hasAskedPermission(Context context, String permission) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPreferences.getBoolean(permission, false);
     }
 
 }

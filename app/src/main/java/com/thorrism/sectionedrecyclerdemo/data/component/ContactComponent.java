@@ -1,7 +1,7 @@
 package com.thorrism.sectionedrecyclerdemo.data.component;
 
 import com.thorrism.sectionedrecyclerdemo.data.module.ContactsViewModule;
-import com.thorrism.sectionedrecyclerdemo.view.activity.MainActivity;
+import com.thorrism.sectionedrecyclerdemo.view.fragment.ContactsFragment;
 
 import dagger.Component;
 
@@ -11,5 +11,5 @@ import dagger.Component;
 @ActivityScope
 @Component(dependencies = {ContactManagerComponent.class}, modules = {ContactsViewModule.class})
 public interface ContactComponent {
-    void inject(MainActivity mainActivity);
+    void inject(ContactsFragment contactsFragment);
 }

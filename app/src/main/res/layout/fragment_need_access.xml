@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_main_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/text_sub_message"
+        android:layout_centerHorizontal="true"
+        android:text="@string/permission_required_contact_read_title"
+        style="@style/AppTheme.PrimaryMessage"/>
+
+    <TextView
+        android:id="@+id/text_sub_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textAlignment="center"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/permission_required_contact_read_description"
+        style="@style/AppTheme.SecondaryMessage"/>
+
+    <TextView
+        android:id="@+id/text_turn_on"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_sub_message"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_centerHorizontal="true"
+        android:text="@string/permission_enable_message"
+        style="@style/AppTheme.SelectableText"/>
+
+</RelativeLayout>

@@ -60,7 +60,24 @@ public class ContactManagerImpl implements ContactManager {
                     String id = cursor.getString(idIdx);
                     model = new Contact();
                     model.setId(id);
-                    model.setName(name);
+
+                    boolean emptyName = StringUtils.isEmpty(name);
+                    boolean emptyNumber = StringUtils.isEmpty(number);
+
+                    // Don't bother with a contact who have no name or number.
+                    // Honestly, most contacts applications won't even let you create a
+                    // contact with this kind of state anyways.
+                    if (emptyName && emptyNumber) {
+                        continue;
+                    }
+
+                    // Treat setting the name specially (some contacts have no name)
+                    if (emptyName) {
+                        model.setName(number);
+                    } else {
+                        model.setName(name);
+                    }
+
                     model.setNumber(number);
                     model.setType(ContactsContract.CommonDataKinds.Phone.getTypeLabel(context.getResources(), cursor.getInt(typeIdx), StringUtils.EMPTY).toString());
                     models.add(model);

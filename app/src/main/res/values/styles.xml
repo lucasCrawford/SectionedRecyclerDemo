@@ -6,6 +6,31 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- Use our own toolbar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="Theme.AppCompat.Light"/>
+
+    <style name="AppTheme.PrimaryMessage">
+        <item name="android:textColor">@color/textPrimaryColor</item>
+        <item name="android:textSize">@dimen/text_primary_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.SecondaryMessage">
+        <item name="android:textColor">@color/textSecondaryColor</item>
+        <item name="android:textSize">@dimen/text_secondary_size</item>
+    </style>
+
+    <style name="AppTheme.SelectableText">
+        <item name="android:textColor">@color/textSelectableColor</item>
+        <item name="android:textSize">@dimen/text_secondary_size</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 </resources>

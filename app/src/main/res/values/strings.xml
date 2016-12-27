@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SectionedRecyclerDemo</string>
+
+    <!-- Strings for requesting permission access -->
+    <string name="permission_required_contact_read_title">Let App Read Contacts</string>
+    <string name="permission_required_contact_read_description">This app needs access to your contacts in order to use the app</string>
+    <string name="permission_enable_message">Enable</string>
+
 </resources>

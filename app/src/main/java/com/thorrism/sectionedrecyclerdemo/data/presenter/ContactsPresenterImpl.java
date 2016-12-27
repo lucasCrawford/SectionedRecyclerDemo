@@ -5,8 +5,8 @@ import android.database.Cursor;
 import android.support.v7.util.SortedList;
 
 import com.thorrism.sectionedrecyclerdemo.adapter.SimpleSectionRecyclerAdapter;
-import com.thorrism.sectionedrecyclerdemo.service.ContactManager;
 import com.thorrism.sectionedrecyclerdemo.data.model.Contact;
+import com.thorrism.sectionedrecyclerdemo.service.ContactManager;
 import com.thorrism.sectionedrecyclerdemo.view.contracts.ContactsContract.ContactsPresenter;
 import com.thorrism.sectionedrecyclerdemo.view.contracts.ContactsContract.ContactsView;
 
@@ -28,6 +28,7 @@ import static com.thorrism.sectionedrecyclerdemo.common.ContactUtils.NUMERICAL_L
  * Created by lcrawford on 10/16/16.
  */
 public class ContactsPresenterImpl implements ContactsPresenter {
+
     private ContactsView view;
     private ContactManager contactManager;
 
