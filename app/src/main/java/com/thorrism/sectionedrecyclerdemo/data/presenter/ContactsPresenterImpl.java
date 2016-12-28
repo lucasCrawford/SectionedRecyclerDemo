@@ -10,6 +10,8 @@ import com.thorrism.sectionedrecyclerdemo.service.ContactManager;
 import com.thorrism.sectionedrecyclerdemo.view.contracts.ContactsContract.ContactsPresenter;
 import com.thorrism.sectionedrecyclerdemo.view.contracts.ContactsContract.ContactsView;
 
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.CharUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
 import java.util.ArrayList;
@@ -72,12 +74,12 @@ public class ContactsPresenterImpl implements ContactsPresenter {
             String firstLetterStr = Character.toString(firstLetter).toUpperCase();
 
             // If the letter is numerical, make it our numerical letter
-            if(NumberUtils.isNumber(firstLetterStr)){
+            if (NumberUtils.isNumber(firstLetterStr) || !CharUtils.isAsciiAlphanumeric(firstLetter)) {
                 firstLetter = NUMERICAL_LETTER;
             }
 
             // If the first letter hasn't been found yet, add a new section for it.
-            if(!LETTER_MAP.get(firstLetter)){
+            if (BooleanUtils.isFalse(LETTER_MAP.get(firstLetter))) {
                 sections.add(new SimpleSectionRecyclerAdapter.Section(i, firstLetterStr));
                 LETTER_MAP.put(firstLetter, true);
             }
